@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>PostalcodeSearch</title>
+    <title>PostalCodeSearch</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -10,6 +10,11 @@
   </head>
 
   <body>
-    <%= yield %>
+    <div class="container">
+      <%= form_with url: search_path, method: :get, local: true do |f| %>
+        <%= f.text_field :postal_code, class: "search_form", placeholder: "郵便番号を入力" %>
+      <% end %>
+      <%= yield %>
+    </div>
   </body>
 </html>
